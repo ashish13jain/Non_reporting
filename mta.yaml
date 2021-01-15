@@ -1,0 +1,27 @@
+ID: EDWP_B
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: CON_B
+    type: hdb
+    path: CON_B
+    requires:
+      - name: hdi_CON_B
+        properties:
+          TARGET_CONTAINER: '~{hdi-container-name}'
+      - name: cross-container-service-CONA
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: CONA_DB
+          service: '~{Cona-service}'
+resources:
+  - name: hdi_CON_B
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: cross-container-service-CONA
+    parameters:
+      service-name: I354221-0vms0p6sfoj17zet-EDWP_A-hdi_CON_A
+    properties:
+      Cona-service: '${service-name}'
+    type: org.cloudfoundry.existing-service
