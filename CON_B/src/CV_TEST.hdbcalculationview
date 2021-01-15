@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_TEST" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_TEST"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Customers">
+    <resourceUri>Customers</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="ProductID"/>
+      <viewAttribute id="CustomerID"/>
+      <viewAttribute id="Amount"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Customers">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProductID" source="ProductID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Amount" source="Amount"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="ProductID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ProductID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ProductID"/>
+    </attribute>
+    <attribute id="CustomerID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CustomerID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="Amount" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Amount"/>
+      <measureMapping columnObjectName="Projection_1" columnName="Amount"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="87" y="198"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

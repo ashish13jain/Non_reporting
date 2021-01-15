@@ -1,0 +1,10 @@
+{
+"CONA_DB" : {
+    "object_owner" : {
+      "container_roles":["EDWP_A.CON_A.Roles::Role_cc_cona#"]
+    },
+    "application_user" : {
+      "container_roles":["EDWP_A.CON_A.Roles::Role_cc_cona"]
+    }
+  }
+}

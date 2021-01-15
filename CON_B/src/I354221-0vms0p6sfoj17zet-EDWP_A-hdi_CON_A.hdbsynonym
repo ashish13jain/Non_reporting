@@ -1,0 +1,9 @@
+{
+  "Customers": {
+    "target": {
+      "object": "Customer",
+      "schema": "EDWP_A_HDI_CON_A",
+      "database": "SYSTEMDB"
+    }
+  }
+}
